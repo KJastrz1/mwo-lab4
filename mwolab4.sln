@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mwolab4", "mwolab4\mwolab4.csproj", "{FA4D3324-1F08-43F0-94E9-78B63BDB1FE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mwolab4", "mwolab4\mwolab4.csproj", "{FA4D3324-1F08-43F0-94E9-78B63BDB1FE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{39233204-43BB-4563-A559-B87B8E540019}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FA4D3324-1F08-43F0-94E9-78B63BDB1FE7} = {FA4D3324-1F08-43F0-94E9-78B63BDB1FE7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{FA4D3324-1F08-43F0-94E9-78B63BDB1FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA4D3324-1F08-43F0-94E9-78B63BDB1FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA4D3324-1F08-43F0-94E9-78B63BDB1FE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39233204-43BB-4563-A559-B87B8E540019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39233204-43BB-4563-A559-B87B8E540019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39233204-43BB-4563-A559-B87B8E540019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39233204-43BB-4563-A559-B87B8E540019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

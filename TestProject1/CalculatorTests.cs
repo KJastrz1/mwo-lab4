@@ -24,7 +24,7 @@ public class CalculatorTests
     public void AddTwoIntegers_NegativeNumber_ThrowsArgumentException()
     {
         // Arrange
-        int num1 = 10;
+        int num1 = -10;
         int num2 = 20;
 
         // Act and Assert

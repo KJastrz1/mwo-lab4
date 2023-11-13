@@ -19,7 +19,7 @@ jobs:
         run: sudo apt-get install jq
       
       - name: Get Version
-        run: dotnet gitversion /output buildserver /nofetch
+        run: dotnet-gitversion /output buildserver /nofetch
         id: gitversion
       
       - name: Set Version

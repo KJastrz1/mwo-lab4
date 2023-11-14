@@ -16,14 +16,21 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.0'
+        dotnet-version: '7.0'
 
     - name: Install GitVersion
       run: |
         wget -q -O gitversion.zip https://github.com/GitTools/GitVersion/releases/download/5.7.0/GitVersion_5.7.0.zip
+        unzip -l gitversion.zip
         unzip -q gitversion.zip -d gitversion
         export PATH=$PATH:$(pwd)/gitversion
       shell: bash
+
+    - name: Show current directory
+      run: pwd
+
+    - name: List files in the current directory
+      run: ls -al
 
     - name: Restore dependencies
       run: dotnet restore
@@ -46,7 +53,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.0'
+        dotnet-version: '7.0'
 
     - name: Publish
       run: dotnet publish -c Release -o ./publish
@@ -62,6 +69,7 @@ jobs:
     - name: Install GitVersion (for updating assembly info)
       run: |
         wget -q -O gitversion.zip https://github.com/GitTools/GitVersion/releases/download/5.7.0/GitVersion_5.7.0.zip
+        unzip -l gitversion.zip
         unzip -q gitversion.zip -d gitversion
         export PATH=$PATH:$(pwd)/gitversion
       shell: bash

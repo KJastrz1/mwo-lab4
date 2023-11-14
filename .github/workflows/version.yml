@@ -53,3 +53,4 @@ jobs:
         app-name: 'your-web-app-name'
         package: './publish/**/*.zip'
         slot-name: 'production' # You can specify the deployment slot
+        publish-profile: ${{ secrets.PUBLISH_PROFILE_DEV }}

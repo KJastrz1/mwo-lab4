@@ -40,7 +40,7 @@ jobs:
       run: |
         git config user.name "Your GitHub Actions"
         git config user.email "actions@example.com"
-        git add YourProject/Properties/AssemblyInfo.cs
+        git add WebApplication1/Properties/AssemblyInfo.cs
         git commit -m "Bump version to ${{ steps.increment_version.outputs.version }}"
         git push
         

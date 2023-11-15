@@ -18,20 +18,23 @@ jobs:
       with:
         dotnet-version: '7.0'
 
-    - name: Install GitVersion
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dotnet-gitversion
+      run: dotnet tool install -g GitVersion.Tool
+
+    - name: Update AssemblyInfo.cs with new version
+      run: gitversion /updateassemblyinfo /nofetch /output buildserver
+
+    - name: Commit version changes
       run: |
-        wget -q -O gitversion.zip https://github.com/GitTools/GitVersion/releases/download/5.7.0/GitVersion_5.7.0.zip
-        unzip -l gitversion.zip
-        unzip -q gitversion.zip -d gitversion
-        export PATH=$PATH:$(pwd)/gitversion
-      shell: bash
-
-    - name: Show current directory
-      run: pwd
-
-    - name: List files in the current directory
-      run: ls -al
-
+        git config user.name "Your GitHub Actions"
+        git config user.email "actions@example.com"
+        git add .
+        git commit -m "Bump version using dotnet-gitversion"
+        git push
+        
     - name: Restore dependencies
       run: dotnet restore
 

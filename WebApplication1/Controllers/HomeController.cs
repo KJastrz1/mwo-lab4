@@ -16,9 +16,7 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            var version = Assembly.GetEntryAssembly()
-                               .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
-                               .InformationalVersion;
+            var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             ViewBag.Version = version;
 

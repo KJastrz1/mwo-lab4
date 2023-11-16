@@ -32,17 +32,10 @@ jobs:
       id: increment_version
       run: echo "::set-output name=version::$(echo ${{ steps.get_version.outputs.version }} | awk -F. '{$NF = $NF + 1;} 1' | sed 's/ /./g')"
   
-    - name: Update AssemblyInfo.cs with new version
-      run: |
-        printf "[assembly: AssemblyVersion('${{ steps.increment_version.outputs.version }}')]" > WebApplication1/Properties/AssemblyInfo.cs
-
-    - name: Commit version changes
-      run: |
-        git config user.name "Your GitHub Actions"
-        git config user.email "actions@example.com"
-        git add WebApplication1/Properties/AssemblyInfo.cs
-        git commit -m "Bump version to ${{ steps.increment_version.outputs.version }}"
-        git push
+    - name: Set version in all AssemblyInfo.cs files
+      uses: secondbounce/assemblyinfo-update@v2
+      with:
+        version: steps.increment_version.outputs.version
         
     - name: Restore dependencies
       run: dotnet restore

@@ -13,27 +13,15 @@
 #       - name: Setup .NET Core SDK
 #         uses: actions/setup-dotnet@v2.1.0
 #         with:
-#           dotnet-version: 7.0.100 # w danej wersji   
+#           dotnet-version: 7.0.100 # w danej wersji         
           
-#       - name: Install jq
-#         run: sudo apt-get install jq
-      
-#       - name: Get Version
-#         run: dotnet-gitversion /output buildserver /nofetch
-#         id: gitversion
-      
-#       - name: Set Version
-#         run: echo "##vso[task.setvariable variable=version]$(cat GitVersion.txt | jq -r .SemVer)"
-#         id: set_version   
-        
 #       - name: Restore dependences # robimy restore
-#         run: dotnet restore        
+#         run: dotnet restore
 #       - name: Build #potem builda
-#         run: dotnet build --no-restore --configuration Release /p:Version=$(version)
+#         run: dotnet build --no-restore
 #       - name: Publish
-#         run: dotnet publish ./WebApplication1/WebApplication1.csproj -c Release -o ${{ env.DOTNET_ROOT}}/api
-#       # - name: Display Version
-#       #   run: dotnet /home/runner/work/lab5PAMIW/lab5PAMIW/P10ShopWebAPPMVC.Client/bin/Release/net7.0/P10ShopWebAPPMVC.Client.dll
+#         run: dotnet publish ./P10ShopWebAPPMVC.Client/P10ShopWebAPPMVC.Client.csproj -c Release -o ${{ env.DOTNET_ROOT}}/api
+     
 #       - name: upload artifact # zipujemy projekt
 #         uses: actions/upload-artifact@v3.1.0
 #         with:
@@ -55,7 +43,7 @@
 #         id: deploy-to-azure
 #         uses: Azure/webapps-deploy@v2
 #         with:
-#           app-name: 'lab4mwoversion' # nazwa aplikacji w azure
+#           app-name: 'lab4mwo' # nazwa aplikacji w azure
 #           publish-profile: ${{ secrets.PUBLISH_PROFILE_DEV }} #uzywamy secrets przchowujący profil publikacji
   
 #   deploy-prod: # kolejny job dla sorodiwska produkcyjnego  
@@ -73,5 +61,5 @@
 #         id: deploy-to-azure
 #         uses: Azure/webapps-deploy@v2
 #         with: 
-#           app-name: 'lab4mwoversionprod' # nazwa aplikacji w azure
+#           app-name: 'lab4mwoprod' # nazwa aplikacji w azure
 #           publish-profile: ${{ secrets. PUBLISH_PROFILE_PROD }} #uzywamy secrets przchowujący profil publikacji

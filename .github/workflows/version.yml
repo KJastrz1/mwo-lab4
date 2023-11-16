@@ -66,5 +66,5 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'lab4mwo'    
+        app-name: 'lab4mwoversion'    
         publish-profile: ${{ secrets.PUBLISH_PROFILE_DEV }}

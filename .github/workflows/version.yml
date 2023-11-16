@@ -66,9 +66,7 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'your-web-app-name'
-        package: './publish/**/*.zip'
-        slot-name: 'production' # You can specify the deployment slot
+        app-name: 'lab4mwo'    
         publish-profile: ${{ secrets.PUBLISH_PROFILE_DEV }}
 
     - name: Install GitVersion (for updating assembly info)

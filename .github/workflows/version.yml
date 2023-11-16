@@ -68,15 +68,3 @@ jobs:
       with:
         app-name: 'lab4mwo'    
         publish-profile: ${{ secrets.PUBLISH_PROFILE_DEV }}
-
-    - name: Install GitVersion (for updating assembly info)
-      run: |
-        wget -q -O gitversion.zip https://github.com/GitTools/GitVersion/releases/download/5.7.0/GitVersion_5.7.0.zip
-        unzip -l gitversion.zip
-        unzip -q gitversion.zip -d gitversion
-        export PATH=$PATH:$(pwd)/gitversion
-      shell: bash
-
-    - name: Update AssemblyInfo with GitVersion
-      run: gitversion /updateassemblyinfo
-      shell: bash
